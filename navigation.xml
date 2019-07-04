@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<NavNode key="Home"
+         parentKey="RootNode"
+         controller="Home"
+         action="Index"
+         text="Home">
+  <Children>
+    <NavNode key="actors" text="Actors" isClickable="false">
+      <Children>
+        <NavNode key="wayne" url="#" text="John Wayne">
+          <Children>
+          </Children>
+        </NavNode>
+        <NavNode key="cooper" url="#" text="Gary Cooper">
+          <Children>
+          </Children>
+        </NavNode>
+        <NavNode key="taylor" url="#" text="Elizabeth Taylor">
+          <Children>
+          </Children>
+        </NavNode>
+      </Children>
+    </NavNode>
+    <NavNode key="directors" text="Directors" isClickable="false">
+      <Children>
+        <NavNode key="kubrik" url="#" text="Stanley Kubrick">
+          <Children>
+          </Children>
+        </NavNode>
+        <NavNode key="malik" url="#" text="Terence Malik">
+          <Children>
+          </Children>
+        </NavNode>
+        <NavNode key="bigelow" url="#" text="Kathryn Bigelow">
+          <Children>
+          </Children>
+        </NavNode>
+      </Children>
+    </NavNode>
+    <NavNode key="films" text="Films" isClickable="false">
+      <Children>
+        <NavNode key="2001" url="#" text="2001">
+          <Children>
+          </Children>
+        </NavNode>
+        <NavNode key="shining" url="#" text="The Shining">
+          <Children>
+          </Children>
+        </NavNode>
+        <NavNode key="jacket" url="#" text="Full Metal Jacket">
+          <Children>
+          </Children>
+        </NavNode>
+      </Children>
+    </NavNode>
+
+  </Children>
+</NavNode>

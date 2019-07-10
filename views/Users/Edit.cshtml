@@ -1,0 +1,39 @@
+@model User
+
+@section CustomMenu {
+  
+  @await Component.InvokeAsync("Navigation", new {viewName = "HorizontalMenuItemChildrenOnly", filterName = "User", startingNodeKey = "User"})
+  
+}
+
+<form method="post" asp-action="Update">
+
+  <div class="field">
+    <label class="label" asp-for="Username"></label>
+    <div class="control">
+      <input class="input" asp-for="Username">
+    </div>
+  </div>
+  <div class="field">
+    <label class="label" asp-for="Email"></label>
+    <div class="control">
+      <input class="input" asp-for="Email">
+    </div>
+  </div>
+  <div class="field">
+    <label class="label" asp-for="Password"></label>
+    <div class="control">
+      <input class="input" asp-for="Password">
+    </div>
+  </div>
+  <div class="field">
+    <label class="label" asp-for="PasswordCompare"></label>
+    <div class="control">
+      <input class="input" asp-for="PasswordCompare">
+    </div>
+  </div>
+  <div class="field">
+    <a asp-controller="Groups" asp-action="ListByUser" asp-route-userId="@Model.Id">Groups</a>
+  </div>
+
+</form>

@@ -1,0 +1,41 @@
+@model NavigationViewModel
+
+@* <a class="navbar-item" href="@Url.Content(Model.AdjustUrl(Model.RootNode))"> *@
+@*   @Model.AdjustText(Model.RootNode) *@
+@* </a> *@
+
+@foreach (var node in Model.RootNode.Children)
+{
+  if (!Model.ShouldAllowView(node))
+  {
+    continue;
+  }
+  if (!Model.HasVisibleChildren(node))
+  {
+    <a class="navbar-item" href="@Url.Content(Model.AdjustUrl(node))">
+      @Model.AdjustText(node)
+    </a>
+  }
+  else
+  {
+    <div class="navbar-item has-dropdown is-hoverable">
+      <a class="navbar-link" href="@Url.Content(Model.AdjustUrl(node))">
+        @Model.AdjustText(node)
+      </a>
+      @Model.UpdateTempNode(node)
+      
+      <div class="navbar-dropdown">
+        @foreach (var childNode in Model.TempNode.Children)
+        {
+          if (!Model.ShouldAllowView(childNode))
+          {
+            continue;
+          }
+          <a class="navbar-item" href="@Url.Content(Model.AdjustUrl(childNode))">
+            @Model.AdjustText(childNode)
+          </a>
+        }
+      </div>
+    </div>
+  }
+}

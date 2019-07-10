@@ -1,0 +1,14 @@
+@{
+  ViewData["Title"] = "Contact Page";
+}
+
+@section CustomMenu {
+  
+  @await Component.InvokeAsync("Navigation", new {viewName = "BulmaTopNav", filterName = "BulmaTopNav", startingNodeKey = ""})
+  
+}
+
+<div>
+  <h1>Contact</h1>
+  <p></p>
+</div>

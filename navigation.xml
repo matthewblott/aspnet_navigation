@@ -1,58 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
-<NavNode key="Home"
-         parentKey="RootNode"
-         controller="Home"
-         action="Index"
-         text="Home">
+<NavNode key="Home" parentKey="RootNode" controller="Home" action="Index" text="Home" componentVisibility="Breadcrumbs">
   <Children>
-    <NavNode key="actors" text="Actors" isClickable="false">
+    <NavNode key="About" controller="Home" action="About" text="About" componentVisibility="BulmaTopNav">
       <Children>
-        <NavNode key="wayne" url="#" text="John Wayne">
+        <NavNode key="AboutMe" controller="Home" action="AboutMe" text="About Me">
           <Children>
+            <NavNode key="AboutMeEducation" controller="Home" action="AboutMeEducation" text="Education">
+              <Children />
+            </NavNode>
+            <NavNode key="AboutMeEmployment" controller="Home" action="AboutMeEmployment" text="Employment">
+              <Children />
+            </NavNode>
           </Children>
         </NavNode>
-        <NavNode key="cooper" url="#" text="Gary Cooper">
-          <Children>
-          </Children>
+        <NavNode key="AboutCompany" controller="Home" action="AboutCompany" text="About Company" componentVisibility="DoNotShow">
+          <Children />
         </NavNode>
-        <NavNode key="taylor" url="#" text="Elizabeth Taylor">
+        <NavNode key="AboutProject" controller="Home" action="AboutProject" text="About Project">
+          <Children />
+        </NavNode>
+      </Children> 
+    </NavNode>
+    <NavNode key="Contact" controller="Home" action="Contact" text="Contact">
+      <Children />
+    </NavNode>
+    <NavNode key="Users" controller="Users" action="List" text="Users" componentVisibility="Users,BulmaTopNav,Breadcrumbs">
+      <Children>
+        <NavNode key="User" controller="Users" action="Edit" text="User" preservedRouteParameters="userId" componentVisibility="Users,Breadcrumbs">
           <Children>
+            <NavNode key="UserGroups" controller="Groups" action="ListByUser" preservedRouteParameters="userId" text="Groups" componentVisibility="Users,Breadcrumbs">
+              <Children />
+            </NavNode>
+            <NavNode key="UserOrders" text="Orders" componentVisibility="Users,Breadcrumbs">
+              <Children />
+            </NavNode>
           </Children>
         </NavNode>
       </Children>
     </NavNode>
-    <NavNode key="directors" text="Directors" isClickable="false">
+    <NavNode key="Orders" controller="Orders" action="List" text="Orders" componentVisibility="Orders,BulmaTopNav,Breadcrumbs">
       <Children>
-        <NavNode key="kubrik" url="#" text="Stanley Kubrick">
+        <NavNode key="Order" controller="Orders" action="Edit" text="Order" preservedRouteParameters="orderId" componentVisibility="Orders,Breadcrumbs">
           <Children>
+            <NavNode key="OrderItems" controller="OrderItems" action="List" text="Items" preservedRouteParameters="orderId" componentVisibility="Orders,Breadcrumbs">
+              <Children>
+                <NavNode key="OrderItem" controller="OrderItems" action="Edit" text="Item" preservedRouteParameters="orderId" componentVisibility="Orders,Breadcrumbs">
+                  <Children />
+                </NavNode>
+              </Children>
+            </NavNode>
           </Children>
         </NavNode>
-        <NavNode key="malik" url="#" text="Terence Malik">
-          <Children>
-          </Children>
+        <NavNode key="UserOrders" text="User Orders" componentVisibility="Orders,Breadcrumbs">
+          <Children />
         </NavNode>
-        <NavNode key="bigelow" url="#" text="Kathryn Bigelow">
-          <Children>
-          </Children>
+        <NavNode key="CustomerOrders" text="Customer Orders" componentVisibility="Orders,Breadcrumbs">
+          <Children />
         </NavNode>
       </Children>
     </NavNode>
-    <NavNode key="films" text="Films" isClickable="false">
-      <Children>
-        <NavNode key="2001" url="#" text="2001">
-          <Children>
-          </Children>
-        </NavNode>
-        <NavNode key="shining" url="#" text="The Shining">
-          <Children>
-          </Children>
-        </NavNode>
-        <NavNode key="jacket" url="#" text="Full Metal Jacket">
-          <Children>
-          </Children>
-        </NavNode>
-      </Children>
-    </NavNode>
-
   </Children>
 </NavNode>

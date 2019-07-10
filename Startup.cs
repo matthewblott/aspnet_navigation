@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using aspnet_template.services;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.Extensions.Configuration;
@@ -18,6 +19,7 @@ namespace aspnet_template
     public void ConfigureServices(IServiceCollection services)
     {
       services.AddCloudscribeNavigation(Configuration.GetSection("NavigationOptions"));
+      services.AddScoped<IUserService, UserService>();
       services.AddMvc()
         .AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix)
         .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);

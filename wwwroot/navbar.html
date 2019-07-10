@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Home Page</title>
+  <title></title>
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
   <link rel="stylesheet" href="https://unpkg.com/bulmaswatch@0.7.2/slate/bulmaswatch.min.css">
-  <link rel="stylesheet" href="css/site.css">
+  <link rel="stylesheet" href="/css/site.css?v=F2aLDn8OG-UJ3c3mx5Tz1A6VSEqAFXNVXs9UNY50e9c">
 </head>
 <body>
 
@@ -20,6 +20,7 @@
     </a>
   </div>
 
+
   <div id="navbar-basic" class="navbar-menu">
 
     <a class="navbar-item" href="/">
@@ -27,95 +28,108 @@
     </a>
 
     <div class="navbar-item has-dropdown is-hoverable">
-      <a class="navbar-link">
-        Actors
+      <a class="navbar-link" href="/Home/About">
+        About
       </a>
 
       <div class="navbar-dropdown">
-        <a class="navbar-item" href="#">
-          John Wayne
+        <a class="navbar-item" href="/Home/AboutMe">
+          About Me
         </a>
-        <a class="navbar-item" href="#">
-          Gary Cooper
+        <a class="navbar-item" href="/Home/AboutCompany">
+          About Company
         </a>
-        <a class="navbar-item" href="#">
-          Elizabeth Taylor
+        <a class="navbar-item" href="/Home/AboutProject">
+          About Project
         </a>
       </div>
 
 
     </div>
-    <div class="navbar-item has-dropdown is-hoverable">
-      <a class="navbar-link">
-        Directors
+    
+    <a class="navbar-item" href="/Home/Contact">
+      Contact
+    </a>
+    <a class="navbar-item" href="/Users/List">
+      Users
+    </a>
+    
+  </div>
+
+
+  <div class="navbar-item has-dropdown is-hoverable">
+    <a class="navbar-link" href="/Users/Edit?userId=2">
+      User
+    </a>
+
+    <div class="navbar-dropdown">
+
+      <a class="navbar-item" href="/Groups/ListByUser">
+        User Groups
       </a>
 
-      <div class="navbar-dropdown">
-        <div class="has-dropdown is-hoverable">
-          <a class="navbar-item" href="#">
-            Stanley Kubrick
-          </a>
-        </div>
-        <a class="navbar-item" href="#">
-          Terence Malik
-        </a>
-        <a class="navbar-item" href="#">
-          Kathryn Bigelow
-        </a>
-      </div>
     </div>
-
-    <div class="navbar-item has-dropdown is-hoverable">
-      <a class="navbar-link">
-        Films
-      </a>
-
-      <div class="navbar-dropdown">
-        <a class="navbar-item" href="#">
-          2001
-        </a>
-        <a class="navbar-item" href="#">
-          The Shining
-        </a>
-        <a class="navbar-item" href="#">
-          Full Metal Jacket
-        </a>
-
-        <div class="navbar-link">
-          <a class="navbar-link">
-            Films 2
-          </a>
-
-          <div class="navbar-dropdown">
-            <a class="navbar-item" href="#">
-              2001
-            </a>
-            <a class="navbar-item" href="#">
-              The Shining
-            </a>
-            <a class="navbar-item" href="#">
-              Full Metal Jacket
-            </a>
-          </div>
-
-        </div>
-
-
-      </div>
-
-    </div>
-
 
   </div>
+
 
 </nav>
 
+
 <div class="container is-fluid">
-  <div>
-    <h1>Welcome</h1>
-    <p></p>
-  </div>
+
+  <nav class="breadcrumb">
+    <ul>
+      <li>
+        <a href="/">Home</a>
+      </li>
+      <li>
+        <a href="/Users/List">Users</a>
+      </li>
+      <li class="is-active">User</li>
+    </ul>
+  </nav>
+
+
+  <form method="post" action="/Users/Update">
+
+    <div class="field">
+      <label class="label" for="Username">Username</label>
+      <div class="control">
+        <input class="input" type="text" id="Username" maxlength="20" name="Username" value="superuser" maxlength="20"
+               required>
+      </div>
+    </div>
+    <div class="field">
+      <label class="label" for="Email">Email</label>
+      <div class="control">
+        <input class="input" type="email" id="Email" maxlength="20" name="Email" maxlength="20" required>
+      </div>
+    </div>
+    <div class="field">
+      <label class="label" for="Password">Password</label>
+      <div class="control">
+        <input class="input" type="password" id="Password" maxlength="20" name="Password" maxlength="20" required>
+      </div>
+    </div>
+    <div class="field">
+      <label class="label" for="PasswordCompare">Password Compare</label>
+      <div class="control">
+        <input class="input" type="password" id="PasswordCompare" maxlength="20" name="PasswordCompare"
+               placeholder="Password Compare" maxlength="20" required data-html5-compare="Password">
+      </div>
+    </div>
+    <div class="field">
+      <a href="/Groups/ListByUser?userId=2">Groups</a>
+    </div>
+
+    <input name="__RequestVerificationToken" type="hidden"
+           value="CfDJ8I-kHJWtMFNJsj-BMMTbPAlhllV804nDoRW3yze4sZ-68-56DjyBIeZS_XGAFTBFSSqYGKHpn7X1nPOCeaGcsqQ-l-wt8Eb7jMcmwiIV5q0ZfkblYb_Xra1zOUOZTUBH8v9cDGmQR7dfOIfGC08I61w"/>
+  </form>
 </div>
+
+<script src="/js/site.js?v=BxFAw9RUJ1E4NycpKEjCNDeoSvr4RPHixdBq5wDnkeY"></script>
+
 
 </body>
 </html>

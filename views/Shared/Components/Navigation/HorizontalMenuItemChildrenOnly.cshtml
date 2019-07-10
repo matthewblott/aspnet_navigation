@@ -1,0 +1,11 @@
+@model NavigationViewModel
+@{
+  var node = Model.StartingNode ?? Model.CurrentNode;
+}
+
+@foreach (var childNode in node.Children)
+{
+  <a class="navbar-item" href="@Url.Content(Model.AdjustUrl(childNode))">
+    @Model.AdjustText(childNode)
+  </a>
+}

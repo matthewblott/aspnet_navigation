@@ -1,0 +1,58 @@
+[
+  {
+    "Id": 1,
+    "Username": "admin",
+    "Password": "password",
+    "Groups": [
+      {
+        "Id": 1,
+        "Name": "admins"
+      },
+      {
+        "Id": 2,
+        "Name": "superusers"
+      },
+      {
+        "Id": 3,
+        "Name": "users"
+      }
+    ]
+  },
+  {
+    "Id": 2,
+    "Username": "superuser",
+    "Password": "password",
+    "Groups": [
+      {
+        "Id": 2,
+        "Name": "superusers"
+      },
+      {
+        "Id": 3,
+        "Name": "users"
+      }
+    ]
+  },
+  {
+    "Id": 3,
+    "Username": "john",
+    "Password": "password",
+    "Groups": [
+      {
+        "Id": 3,
+        "Name": "users"
+      }
+    ]
+  },
+  {
+    "Id": 4,
+    "Username": "jane",
+    "Password": "password",
+    "Groups": [
+      {
+        "Id": 3,
+        "Name": "users"
+      }
+    ]
+  }
+]

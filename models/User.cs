@@ -1,9 +1,12 @@
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace aspnet_template.models
 {
-  public class UserViewModel
+  public class User
   {
+    public int Id { get; set; }
+    
     [MaxLength(20)]
     [Required]
     [Editable(true)]
@@ -25,6 +28,8 @@ namespace aspnet_template.models
     [Compare(nameof(Password), ErrorMessage = "The passwords do not match")]
     [Display(Name = "Password Compare", Prompt = "Password Compare")]
     public string PasswordCompare { get; set; }
+    
+    public IEnumerable<Group> Groups { get; set; }
     
   }
   

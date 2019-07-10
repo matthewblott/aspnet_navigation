@@ -1,0 +1,24 @@
+@model NavigationViewModel
+@{
+  var node = Model.StartingNode ?? Model.CurrentNode;
+}
+
+<div class="navbar-item has-dropdown is-hoverable">
+
+  <a class="navbar-link" href="@Url.Content(Model.AdjustUrl(node))">
+    @Model.AdjustText(node)
+  </a>
+
+  <div class="navbar-dropdown">
+    
+    @foreach (var childNode in node.Children)
+    {
+      <a class="navbar-item" href="@Url.Content(Model.AdjustUrl(childNode))">
+        @Model.AdjustText(childNode)
+      </a>
+      
+    }
+    
+  </div>
+  
+</div>

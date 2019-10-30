@@ -6,7 +6,7 @@
     <ul>
       @foreach (var node in Model.ParentChain)
       {
-        if (!Model.ShouldAllowView(node))
+        if (!await Model.ShouldAllowView(node))
         {
           continue;
         }

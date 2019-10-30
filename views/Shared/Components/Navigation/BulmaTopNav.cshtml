@@ -1,16 +1,12 @@
 @model NavigationViewModel
 
-@* <a class="navbar-item" href="@Url.Content(Model.AdjustUrl(Model.RootNode))"> *@
-@*   @Model.AdjustText(Model.RootNode) *@
-@* </a> *@
-
 @foreach (var node in Model.RootNode.Children)
 {
-  if (!Model.ShouldAllowView(node))
+  if (!await Model.ShouldAllowView(node))
   {
     continue;
   }
-  if (!Model.HasVisibleChildren(node))
+  if (!await Model.HasVisibleChildren(node))
   {
     <a class="navbar-item" href="@Url.Content(Model.AdjustUrl(node))">
       @Model.AdjustText(node)
@@ -27,7 +23,7 @@
       <div class="navbar-dropdown">
         @foreach (var childNode in Model.TempNode.Children)
         {
-          if (!Model.ShouldAllowView(childNode))
+          if (!await Model.ShouldAllowView(childNode))
           {
             continue;
           }

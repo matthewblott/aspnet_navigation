@@ -6,5 +6,6 @@
   <ItemGroup>
     <PackageReference Include="cloudscribe.Web.Navigation" Version="2.1.21" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="SmartBreadcrumbs" Version="2.1.0" />
   </ItemGroup>  
 </Project>

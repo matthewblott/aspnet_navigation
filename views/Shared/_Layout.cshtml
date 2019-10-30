@@ -18,22 +18,35 @@
       <span aria-hidden="true"></span>
     </a>
   </div>
-  
+
   <div id="navbar-basic" class="navbar-menu">
 
     <a class="navbar-item" asp-controller="Home" asp-action="Index">
       Home
     </a>
-    
+    <div class="navbar-item has-dropdown is-hoverable">
+      <a class="navbar-link" href="/Home/About">
+        About
+      </a>
+      <div class="navbar-dropdown">
+        <a class="navbar-item" href="/Home/AboutMe">
+          About Me
+        </a>
+        <a class="navbar-item" href="/Home/AboutProject">
+          About Project
+        </a>
+      </div>
+    </div>
+
     @RenderSection("CustomMenu", false)
 
   </div>
 
 </nav>
 
-<div class="container is-fluid">
-  @await Component.InvokeAsync("Navigation", new { viewName = "Breadcrumbs", filterName = "Breadcrumbs", startingNodeKey = "" })
+<breadcrumb></breadcrumb>
 
+<div class="container is-fluid">
   @RenderBody()
 </div>
 

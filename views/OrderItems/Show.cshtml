@@ -1,0 +1,24 @@
+@model OrderItem
+
+<div class="field">
+  <label class="label" asp-for="OrderId"></label>
+  <div class="control">
+    <input class="input" asp-for="OrderId">
+  </div>
+</div>
+<div class="field">
+  <label class="label" asp-for="ItemId"></label>
+  <div class="control">
+    <input class="input" asp-for="ItemId">
+  </div>
+</div>
+<div class="field">
+  <label class="label" asp-for="Sku"></label>
+  <div class="control">
+    <input class="input" asp-for="Sku">
+  </div>
+</div>
+
+<div class="field">
+  <a asp-controller="Products" asp-action="Show" asp-route-orderId="@Model.OrderId" asp-route-itemId="@Model.ItemId">Product</a>
+</div>

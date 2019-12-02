@@ -1,0 +1,23 @@
+@model Order
+
+@section CustomMenu {
+  
+  @await Component.InvokeAsync("Navigation", new {viewName = "HorizontalMenuItemChildrenOnly", filterName = "Order", startingNodeKey = "Order"})
+  
+}
+
+<div class="field">
+  <label class="label" asp-for="Id"></label>
+  <div class="control">
+    <input class="input" asp-for="Id">
+  </div>
+</div>
+<div class="field">
+  <label class="label" asp-for="UserId"></label>
+  <div class="control">
+    <input class="input" asp-for="UserId">
+  </div>
+</div>
+<div class="field">
+  <a asp-controller="OrderItems" asp-action="ListByOrder" asp-route-orderId="@Model.Id">Items</a>
+</div>

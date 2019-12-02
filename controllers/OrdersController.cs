@@ -1,37 +1,26 @@
-using System;
+using aspnet_template.services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace aspnet_template.controllers
 {
   public class OrdersController : Controller
   {
-    public IActionResult Index()
-    {
-      return View();
-    }
+    private readonly IOrderService _orderService;
 
-    public IActionResult List()
-    {
-      return View();
-    }
-    
-    public IActionResult Edit(int orderId)
-    {
-      return View();
-    }
-    
-    [HttpPost]
-    public IActionResult Create()
-    {
-      return RedirectToAction(nameof(Index));
-    }
-    
-    [HttpPost]
-    public IActionResult Update()
-    {
-      return RedirectToAction(nameof(Index));
-    }
+    public OrdersController(IOrderService orderService) => _orderService = orderService;
 
+    public IActionResult Index() => View();
+
+    public IActionResult List() => View(_orderService.GetAll());
+
+    public IActionResult Show(int orderId) => View( _orderService.GetById(orderId));
+
+    [HttpPost]
+    public IActionResult Create() => RedirectToAction(nameof(Index));
+
+    [HttpPost]
+    public IActionResult Update() => RedirectToAction(nameof(Index));
+    
   }
   
 }

@@ -23,11 +23,12 @@ namespace aspnet_template
     {
       services.AddCloudscribeNavigation(Configuration.GetSection("NavigationOptions"));
       services.AddScoped<IUserService, UserService>();
+      services.AddScoped<IOrderService, OrderService>();
       services.AddRouting(x => x.LowercaseUrls = true);
-      services.AddMvc()
+      services.AddMvc(x => x.Filters.Add(typeof(Breadcrumbs)))
         .AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix)
-        .SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
-//        .AddRazorRuntimeCompilation();
+        .SetCompatibilityVersion(CompatibilityVersion.Version_3_0)
+        .AddRazorRuntimeCompilation();
       
     }
 
@@ -36,11 +37,7 @@ namespace aspnet_template
       app.UseDeveloperExceptionPage();
       app.UseStaticFiles();
       app.UseRouting();
-      app.UseEndpoints(endpoints =>
-      {
-        endpoints.MapControllerRoute("default", "{controller=Home}/{action=Index}/{id?}");
-      });      
-      
+      app.UseEndpoints(endpoints => endpoints.MapDefaultControllerRoute());      
     }
     
     public static void Main(string[] args) =>

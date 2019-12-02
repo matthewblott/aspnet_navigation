@@ -9,19 +9,9 @@ namespace aspnet_template.controllers
 
     public GroupsController(IUserService userService) => _userService = userService;
     
-    public IActionResult Index()
-    {
-      return View();
-    }
+    public IActionResult Index() => View();
 
-    public IActionResult ListByUser(int userId)
-    {
-      var model = _userService.GetGroupsByUser(userId);
-
-      return View("List", model);
-      
-    }
-    
+    public IActionResult ListByUser(int userId) => View("List", _userService.GetGroupsByUser(userId));
   }
   
 }

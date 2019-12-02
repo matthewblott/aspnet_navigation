@@ -8,42 +8,18 @@ namespace aspnet_template.controllers
   {
     private readonly IUserService _userService;
     public UsersController(IUserService userService) => _userService = userService;
-    
-    public IActionResult Index()
-    {
-      var userViewModel = new User();
-      
-      return View(userViewModel);
-    }
 
-    public IActionResult List()
-    {
-      var model = _userService.GetAll();
-      
-      return View(model);
-      
-    }
-    
-    public IActionResult Edit(int userId)
-    {
-      var model = _userService.GetById(userId);
-      
-      return View(model);
-      
-    }
-    
-    [HttpPost]
-    public IActionResult Create()
-    {
-      return RedirectToAction(nameof(Index));
+    public IActionResult Index() => View(new User());
 
-    }
-    
+    public IActionResult List() => View(_userService.GetAll());
+
+    public IActionResult Edit(int userId) => View(_userService.GetById(userId));
+
     [HttpPost]
-    public IActionResult Update()
-    {
-      return RedirectToAction(nameof(Index));
-    }
+    public IActionResult Create() => RedirectToAction(nameof(Index));
+
+    [HttpPost]
+    public IActionResult Update() => RedirectToAction(nameof(Index));
     
   }
   

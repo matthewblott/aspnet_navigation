@@ -4,16 +4,10 @@ namespace aspnet_template.controllers
 {
   public class HomeController : Controller
   {
-    public IActionResult Index()
-    {
-      return View();
-    }
+    public IActionResult Index() => View();
 
-    public IActionResult About()
-    {
-      return View();
-    }
-   
+    public IActionResult About() => View();
+
     public IActionResult AboutMe()
     {
       ViewData["Message"] = "about me page.";
@@ -49,10 +43,7 @@ namespace aspnet_template.controllers
       return View("About");
     }
 
-    public IActionResult Contact()
-    {
-      return View();
-    }
+    public IActionResult Contact() => View();
     
   }
     

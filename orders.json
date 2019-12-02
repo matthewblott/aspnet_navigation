@@ -1,0 +1,54 @@
+[
+  {
+    "Id": 1,
+    "UserId": 3,
+    "Items": [
+      {
+        "OrderId": 1,
+        "ItemId": 1,
+        "Sku": "Widget1",
+        "Quantity": 1,
+        "Product": {
+          "Sku": "Widget1",
+          "Price": 1.99
+        }
+      },
+      {
+        "OrderId": 1,
+        "ItemId": 2,
+        "Sku": "Widget2",
+        "Quantity": 2,
+        "Product": {
+          "Sku": "Widget2",
+          "Price": 2.99
+        }
+      }
+    ]
+  },
+  {
+    "Id": 2,
+    "UserId": 4,
+    "Items": [
+      {
+        "OrderId": 2,
+        "ItemId": 1,
+        "Sku": "Widget1",
+        "Quantity": 1,
+        "Product": {
+          "Sku": "Widget1",
+          "Price": 1.99
+        }
+      },
+      {
+        "OrderId": 2,
+        "ItemId": 2,
+        "Sku": "Widget2",
+        "Quantity": 2,
+        "Product": {
+          "Sku": "Widget2",
+          "Price": 2.99
+        }
+      }
+    ]
+  }
+]

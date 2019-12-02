@@ -1,0 +1,20 @@
+@model Product
+
+@section CustomMenu {
+  
+  @await Component.InvokeAsync("Navigation", new {viewName = "HorizontalMenuItemChildrenOnly", filterName = "Order", startingNodeKey = "Order"})
+  
+}
+
+<div class="field">
+  <label class="label" asp-for="Sku"></label>
+  <div class="control">
+    <input class="input" asp-for="Sku">
+  </div>
+</div>
+<div class="field">
+  <label class="label" asp-for="Price"></label>
+  <div class="control">
+    <input class="input" asp-for="Price">
+  </div>
+</div>

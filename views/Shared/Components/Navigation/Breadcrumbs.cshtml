@@ -1,43 +1,40 @@
 @model NavigationViewModel
 
-@if (Model.CurrentNode != null && (Model.ParentChain.Count > 1 || (Model.TailCrumbs != null && Model.TailCrumbs.Count > 0)))
-{
-  <nav class="breadcrumb">
-    <ul>
-      @foreach (var node in Model.ParentChain)
+<nav class="breadcrumb">
+  <ul>
+    @foreach (var node in Model.ParentChain)
+    {
+      if (!await Model.ShouldAllowView(node))
       {
-        if (!await Model.ShouldAllowView(node))
-        {
-          continue;
-        }
+        continue;
+      }
 
-        if (node.EqualsNode(Model.CurrentNode))
-        {
-          if (Model.TailCrumbs != null)
-          {
-            <li>
-              <a href="@Url.Content(Model.AdjustUrl(node))">@Model.AdjustText(node)</a>
-            </li>
-          }
-          else
-          {
-            <li class="is-active">@Model.AdjustText(node)</li>
-          }
-        }
-        else
+      if (node.EqualsNode(Model.CurrentNode))
+      {
+        if (Model.TailCrumbs != null)
         {
           <li>
             <a href="@Url.Content(Model.AdjustUrl(node))">@Model.AdjustText(node)</a>
           </li>
         }
-      }
-      @if (Model.TailCrumbs != null)
-      {
-        foreach (var n in Model.TailCrumbs)
+        else
         {
-          <li class="is-active">@n.Text</li>
+          <li class="is-active">@Model.AdjustText(node)</li>
         }
       }
-    </ul>
-  </nav>
-}
+      else
+      {
+        <li>
+          <a href="@Url.Content(Model.AdjustUrl(node))">@Model.AdjustText(node)</a>
+        </li>
+      }
+    }
+    @if (Model.TailCrumbs != null)
+    {
+      foreach (var n in Model.TailCrumbs)
+      {
+        <li class="is-active">@n.Text</li>
+      }
+    }
+  </ul>
+</nav>

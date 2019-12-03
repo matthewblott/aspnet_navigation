@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using aspnet_template.services;
+using cloudscribe.Web.Navigation;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
@@ -16,13 +17,21 @@ namespace aspnet_template
   {
     private readonly IOrderService _orderService;
     private readonly IActionDescriptorCollectionProvider _provider;
+
+    private readonly NavigationTreeBuilderService _builderService;
+
+//    private readonly IFindCurrentNode _finder;
     private readonly IUrlHelperFactory _factory;
 
+    // INavigationTreeBuilder
+    
     public Breadcrumbs(IOrderService orderService, IActionDescriptorCollectionProvider provider,
-      IServiceProvider services)
+      IServiceProvider services, NavigationTreeBuilderService builderService)
     {
       _orderService = orderService;
       _provider = provider;
+      _builderService = builderService;
+//      _finder = finder;
       _factory = services.GetRequiredService<IUrlHelperFactory>();
     }
 
@@ -33,6 +42,9 @@ namespace aspnet_template
         return;
       }
 
+      var result = _builderService.GetTree();
+      var tree = result.Result;
+      
       var args = context.ActionArguments;
       var orderId = args.GetValueFromKey<int>("orderId");
       var userId = args.GetValueFromKey<int>("userId");
@@ -48,7 +60,7 @@ namespace aspnet_template
         {nameof(itemId), itemId.ToString()},
         {nameof(sku), sku}
       };
-
+      
       foreach (var item in items)
       {
         const string action = nameof(action);
@@ -59,6 +71,15 @@ namespace aspnet_template
         var values = new StringBuilder("?");
         var key = $"{ctl}.{act}";
 
+        var node = tree.FindByKey(key);
+
+        if (node != null)
+        {
+          Console.WriteLine(node);
+          
+          // node.Value.PreservedRouteParameters
+        }
+        
         foreach (var p in item.Parameters)
         {
           if (keys.Any(x => x.Key == p.Name))
@@ -74,7 +95,7 @@ namespace aspnet_template
         var url = helper.Action(act, ctl, new { }) + values;
         var text = act.Titleize();
         
-        context.HttpContext.AdjustBreadcrumb(key.Titleize(), text, url);
+        context.HttpContext.AdjustBreadcrumb(key, text, url);
           
       }
       

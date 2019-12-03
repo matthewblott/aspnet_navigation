@@ -9,7 +9,7 @@ namespace aspnet_template.services
 {
   public class OrderService : IOrderService
   {
-    private const string Filename = "orders.json";
+    private const string Filename = "data/orders.json";
     private readonly IList<Order> _orders = new List<Order>();
 
     public OrderService()

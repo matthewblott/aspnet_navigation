@@ -1,0 +1,65 @@
+{
+  "Value": {
+    "Key": "Home",
+    "ParentKey": "RootNode",
+    "Text": "Home",
+    "Controller": "Home",
+    "Action": "Index",
+    "IsRootNode": true,
+    "ComponentVisibility": "Breadcrumbs"
+  },
+  "Children": [
+    {
+      "Value": {
+        "Key": "About",
+        "ParentKey": "RootNode",
+        "Text": "About",
+        "Controller": "Home",
+        "Action": "About"
+      },
+      "Children": []
+    },
+    {
+      "Value": {
+        "Key": "Contact",
+        "ParentKey": "RootNode",
+        "Text": "Contact",
+        "Controller": "Home",
+        "Action": "Contact"
+      },
+      "Children": []
+    },
+    {
+      "Value": {
+        "Key": "Users",
+        "ParentKey": "RootNode",
+        "Text": "Users",
+        "Controller": "Users",
+        "Action": "List"
+      },
+      "Children": [
+        {
+          "Value": {
+            "Key": "User",
+            "ParentKey": "RootNode",
+            "Text": "User",
+            "Controller": "Users",
+            "Action": "Edit"
+          },
+          "Children": []
+        }
+      ]
+    },
+    {
+      "Value": {
+        "Key": "Orders",
+        "ParentKey": "RootNode",
+        "Text": "Contact",
+        "Controller": "Home",
+        "Action": "Contact"
+      },
+      "Children": []
+    }
+
+  ]
+}

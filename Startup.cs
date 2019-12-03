@@ -4,7 +4,9 @@ using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.AspNetCore.Mvc.Razor;
+using Microsoft.AspNetCore.Mvc.Routing;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -14,6 +16,12 @@ namespace aspnet_template
   {
     public Startup(IConfiguration configuration)
     {
+      var builder = new ConfigurationBuilder()
+        .SetBasePath(Directory.GetCurrentDirectory())
+        .AddJsonFile("appsettings.json", optional: true);
+
+      builder.Build();
+      
       Configuration = configuration;
     }
 
@@ -21,15 +29,23 @@ namespace aspnet_template
 
     public void ConfigureServices(IServiceCollection services)
     {
-      services.AddCloudscribeNavigation(Configuration.GetSection("NavigationOptions"));
-      services.AddScoped<IUserService, UserService>();
+      services.AddSingleton<IActionContextAccessor, ActionContextAccessor>();
+      services.AddScoped(x => x.GetRequiredService<IUrlHelperFactory>().
+        GetUrlHelper(x.GetRequiredService<IActionContextAccessor>().ActionContext));
+      
+      services.AddCloudscribeNavigation( Configuration.GetSection("NavigationOptions"));
       services.AddScoped<IOrderService, OrderService>();
+      services.AddScoped<IProductService, ProductService>();
+      services.AddScoped<IUserService, UserService>();
       services.AddRouting(x => x.LowercaseUrls = true);
-      services.AddMvc(x => x.Filters.Add(typeof(Breadcrumbs)))
+      services.AddMvc(x =>
+        {
+          x.EnableEndpointRouting = true;
+          x.Filters.Add(typeof(Breadcrumbs));
+        })
         .AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix)
         .SetCompatibilityVersion(CompatibilityVersion.Version_3_0)
         .AddRazorRuntimeCompilation();
-      
     }
 
     public void Configure(IApplicationBuilder app)

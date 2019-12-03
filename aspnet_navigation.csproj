@@ -2,10 +2,11 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.0</TargetFramework>
     <UserSecretsId>17fd28a9-e54f-447c-9d9d-0cfacf1437a4</UserSecretsId>
+    <RootNamespace>aspnet_template</RootNamespace>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="cloudscribe.Web.Navigation" Version="4.0.0" />
+    <PackageReference Include="Humanizer" Version="2.7.9" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="3.0.0" />
-    <PackageReference Include="Microsoft.AspNetCore.App" />
   </ItemGroup>  
 </Project>

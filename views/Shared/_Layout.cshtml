@@ -32,6 +32,7 @@
 </nav>
 
 <div class="container is-fluid">
+
   @await Component.InvokeAsync("Navigation", new { viewName = "Breadcrumbs", filterName = "Breadcrumbs", startingNodeKey = "" })
 
   @RenderBody()

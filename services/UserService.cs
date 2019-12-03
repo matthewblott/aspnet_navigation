@@ -8,7 +8,7 @@ namespace aspnet_template.services
 {
   public class UserService : IUserService
   {
-    private const string Filename = "users.json";
+    private const string Filename = "data/users.json";
     private readonly IList<User> _users = new List<User>();
 
     public UserService()

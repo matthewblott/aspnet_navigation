@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace aspnet_template
+namespace aspnet_navigation.core
 {
   public static class Extensions
   {

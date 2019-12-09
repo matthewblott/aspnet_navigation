@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace aspnet_template.models
+namespace aspnet_navigation.models
 {
   public class User
   {

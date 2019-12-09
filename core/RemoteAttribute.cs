@@ -1,4 +1,4 @@
-namespace aspnet_template.core
+namespace aspnet_navigation.core
 {
   public class RemoteAttribute : Microsoft.AspNetCore.Mvc.RemoteAttribute
   {

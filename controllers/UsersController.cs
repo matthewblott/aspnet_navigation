@@ -1,8 +1,8 @@
+using aspnet_navigation.models;
+using aspnet_navigation.services;
 using Microsoft.AspNetCore.Mvc;
-using aspnet_template.models;
-using aspnet_template.services;
 
-namespace aspnet_template.controllers
+namespace aspnet_navigation.controllers
 {
   public class UsersController : Controller
   {

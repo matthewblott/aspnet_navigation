@@ -2,7 +2,7 @@ using System;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace aspnet_template
+namespace aspnet_navigation.core
 {
   [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method)]
   public class BreadcrumbsAttribute : Attribute, IFilterFactory

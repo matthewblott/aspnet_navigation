@@ -1,8 +1,8 @@
 using System.Linq;
-using aspnet_template.services;
+using aspnet_navigation.services;
 using Microsoft.AspNetCore.Mvc;
 
-namespace aspnet_template.controllers
+namespace aspnet_navigation.controllers
 {
   public class OrderItemsController : Controller
   {

@@ -2,10 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using aspnet_navigation.models;
 using Newtonsoft.Json;
-using aspnet_template.models;
 
-namespace aspnet_template.services
+namespace aspnet_navigation.services
 {
   public class OrderService : IOrderService
   {

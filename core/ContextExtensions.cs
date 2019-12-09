@@ -2,7 +2,7 @@ using cloudscribe.Web.Navigation;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.Features;
 
-namespace aspnet_template
+namespace aspnet_navigation.core
 {
   public static class ContextExtensions
   {

@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc.ModelBinding.Metadata;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 
-namespace aspnet_template.core
+namespace aspnet_navigation.core
 {
   [HtmlTargetElement("input", Attributes = "asp-for")]
   [HtmlTargetElement("textarea", Attributes = "asp-for")]

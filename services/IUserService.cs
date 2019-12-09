@@ -1,7 +1,7 @@
 using System.Collections.Generic;
-using aspnet_template.models;
+using aspnet_navigation.models;
 
-namespace aspnet_template.services
+namespace aspnet_navigation.services
 {
   public interface IUserService
   {

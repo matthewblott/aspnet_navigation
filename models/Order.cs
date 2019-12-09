@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace aspnet_template.models
+namespace aspnet_navigation.models
 {
   public class Order
   {

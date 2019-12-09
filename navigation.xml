@@ -1,78 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<NavNode key="Home.Index" parentKey="RootNode" controller="Home" action="Index" text="Home" componentVisibility="Breadcrumbs">
+<!-- componentVisibility -->
+<!-- See ~/Shared/Components/Navigation/ -->
+
+<NavNode key="Home.Index" parentKey="RootNode" controller="Home" action="Index" text="Home">
   <Children>
-    <NavNode key="Home.About" controller="Home" action="About" text="About" componentVisibility="BulmaTopNav">
+    <NavNode key="Home.About" controller="Home" action="About" text="About">
       <Children>
         <NavNode key="AboutMe" controller="Home" action="AboutMe" text="About Me">
           <Children>
-            <NavNode key="AboutMeEducation" controller="Home" action="AboutMeEducation" text="Education">
-              <Children/>
-            </NavNode>
-            <NavNode key="AboutMeEmployment" controller="Home" action="AboutMeEmployment" text="Employment">
-              <Children/>
-            </NavNode>
+            <NavNode key="AboutMeEducation" controller="Home" action="AboutMeEducation" text="Education" />
+            <NavNode key="AboutMeEmployment" controller="Home" action="AboutMeEmployment" text="Employment" />
           </Children>
         </NavNode>
         <NavNode key="AboutCompany" controller="Home" action="AboutCompany" text="About Company"
-                 componentVisibility="DoNotShow">
-          <Children/>
-        </NavNode>
-        <NavNode key="AboutProject" controller="Home" action="AboutProject" text="About Project">
-          <Children/>
-        </NavNode>
+                 componentVisibility="DoNotShow" />
+        <NavNode key="AboutProject" controller="Home" action="AboutProject" text="About Project" />
       </Children>
     </NavNode>
-    <NavNode key="Home.Contact" controller="Home" action="Contact" text="Contact">
-      <Children/>
-    </NavNode>
-
-    <!-- componentVisibility -->
-    <!-- See ~/Shared/Components/Navigation/ -->
-
-    <NavNode key="Users.List" controller="Users" action="List" text="Users"
-             componentVisibility="Users,BulmaTopNav,Breadcrumbs">
+    <NavNode key="Home.Contact" controller="Home" action="Contact" text="Contact" />
+    <NavNode key="Users.List" controller="Users" action="List" text="Users">
       <Children>
-        <NavNode key="Users.Edit" controller="Users" action="Edit" text="User" preservedRouteParameters="userId"
-                 componentVisibility="Users,Breadcrumbs">
+        <NavNode key="Users.Edit" controller="Users" action="Edit" text="User" preservedRouteParameters="userId">
           <Children>
             <NavNode key="Groups.ListByUser" controller="Groups" action="ListByUser" preservedRouteParameters="userId"
-                     text="Groups" componentVisibility="Users,Breadcrumbs">
-              <Children/>
-            </NavNode>
-            <NavNode key="UserOrders" text="Orders" componentVisibility="Users,Breadcrumbs">
-              <Children/>
-            </NavNode>
+                     text="Groups" />
+            <NavNode key="UserOrders" text="Orders" />
           </Children>
         </NavNode>
       </Children>
     </NavNode>
-    <NavNode key="Orders.List" controller="Orders" action="List" text="Orders" componentVisibility="BulmaTopNav,Breadcrumbs">
+    <NavNode key="Orders.List" controller="Orders" action="List" text="Orders">
       <Children>
-        <NavNode key="Orders.Show" controller="Orders" action="Show" text="Order" preservedRouteParameters="orderId"
-                 componentVisibility="Breadcrumbs">
+        <NavNode key="Orders.Show" controller="Orders" action="Show" text="Order" preservedRouteParameters="orderId">
           <Children>
             <NavNode key="OrderItems.ListByOrder" controller="OrderItems" action="ListByOrder" text="Items"
-                     preservedRouteParameters="orderId" componentVisibility="Breadcrumbs">
+                     preservedRouteParameters="orderId">
               <Children>
                 <NavNode key="OrderItems.Show" controller="OrderItems" action="Show" text="Item"
-                         preservedRouteParameters="orderId,itemId" componentVisibility="Breadcrumbs">
+                         preservedRouteParameters="orderId,itemId">
+                    <DataAttributes>
+                      <DataAttribute attribute="display-parameter" value="itemId" />
+                    </DataAttributes>
                   <Children>
                     <NavNode key="Products.Show" controller="Products" action="Show" text="Product"
-                             preservedRouteParameters="orderId,itemId" componentVisibility="Breadcrumbs">
-                      <Children />
-                    </NavNode>
+                             preservedRouteParameters="sku" />
                   </Children>
                 </NavNode>
               </Children>
             </NavNode>
           </Children>
         </NavNode>
-        <NavNode key="UserOrders" text="User Orders" componentVisibility="Breadcrumbs">
-          <Children/>
-        </NavNode>
-        <NavNode key="CustomerOrders" text="Customer Orders" componentVisibility="Breadcrumbs">
-          <Children/>
-        </NavNode>
+        <NavNode key="UserOrders" text="User Orders" />
+        <NavNode key="CustomerOrders" text="Customer Orders" />
       </Children>
     </NavNode>
   </Children>

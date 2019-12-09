@@ -1,5 +1,7 @@
 ﻿using System.IO;
-using aspnet_template.services;
+using aspnet_navigation.core;
+using aspnet_navigation.services;
+using cloudscribe.Web.Navigation;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -10,7 +12,7 @@ using Microsoft.AspNetCore.Mvc.Routing;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace aspnet_template
+namespace aspnet_navigation.setup
 {
   public class Startup
   {
@@ -32,8 +34,8 @@ namespace aspnet_template
       services.AddSingleton<IActionContextAccessor, ActionContextAccessor>();
       services.AddScoped(x => x.GetRequiredService<IUrlHelperFactory>().
         GetUrlHelper(x.GetRequiredService<IActionContextAccessor>().ActionContext));
-      
-      services.AddCloudscribeNavigation( Configuration.GetSection("NavigationOptions"));
+      services.AddCloudscribeNavigation(Configuration.GetSection("NavigationOptions"));
+      services.AddScoped<INavigationTreeBuilder, JsonNavigationTreeBuilder>();
       services.AddScoped<IOrderService, OrderService>();
       services.AddScoped<IProductService, ProductService>();
       services.AddScoped<IUserService, UserService>();

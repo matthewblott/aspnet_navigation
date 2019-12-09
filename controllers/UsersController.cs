@@ -13,7 +13,16 @@ namespace aspnet_navigation.controllers
 
     public IActionResult List() => View(_userService.GetAll());
 
-    public IActionResult Edit(int userId) => View(_userService.GetById(userId));
+    public IActionResult Edit(int userId)
+    {
+      if (userId == default)
+      {
+        return RedirectToAction(nameof(List));
+      }
+      
+      return View(_userService.GetById(userId));
+      
+    }
 
     [HttpPost]
     public IActionResult Create() => RedirectToAction(nameof(Index));

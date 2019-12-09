@@ -13,7 +13,15 @@ namespace aspnet_navigation.controllers
 
     public IActionResult List() => View(_orderService.GetAll());
 
-    public IActionResult Show(int orderId) => View( _orderService.GetById(orderId));
+    public IActionResult Show(int orderId)
+    {
+      if (orderId == default)
+      {
+        return RedirectToAction(nameof(List));
+      }
+      
+      return View(_orderService.GetById(orderId));
+    }
 
     [HttpPost]
     public IActionResult Create() => RedirectToAction(nameof(Index));
